@@ -23,20 +23,18 @@ pipeline {
       }
       post {
         success {
-            emailext(
-            to: 'rahmansean99@gmail.com',
+
+            mail to: 'rahmansean99@gmail.com',
             subject: "TESTS PASSED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "Unit/Integration tests passed.\n A file is attached."
-            attachBuildLog: true, 
-            compressLog: true
-            )
+            body: "Unit/Integration tests passed.\nSee console: ${env.BUILD_URL}"
+          
         }
         failure {
 
         
             mail to: 'rahmansean99@gmail.com',
             subject: "TESTS FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "Tests failed.\nSee console: ${env.BUILD_URL} console"
+            body: "Tests failed.\nSee console: ${env.BUILD_URL}"
            
           
         }
@@ -60,7 +58,7 @@ pipeline {
           
             mail to: 'rahmansean99@gmail.com',
             subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL} console"
+            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL}"
             
         
         }
@@ -68,7 +66,7 @@ pipeline {
           
             mail to: 'rahmansean99@gmail.com',
             subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL} console"
+            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL}"
       
           
         }
