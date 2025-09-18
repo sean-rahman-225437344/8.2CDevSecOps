@@ -26,7 +26,7 @@ pipeline {
        
             mail to: 'rahmansean99@gmail.com',
             subject: "TESTS PASSED",
-            body: "Unit/Integration tests passed.",
+            body: "Unit/Integration tests passed."
           
           
         }
@@ -35,7 +35,7 @@ pipeline {
         
             mail to: 'rahmansean99@gmail.com',
             subject: "TESTS FAILED",
-            body: "Tests failed.",
+            body: "Tests failed."
             
           
         }
@@ -59,7 +59,7 @@ pipeline {
           
             mail to: 'rahmansean99@gmail.com',
             subject: "SECURITY OK",
-            body: "npm audit completed successfully.",
+            body: "npm audit completed successfully."
             
         
         }
@@ -67,7 +67,7 @@ pipeline {
           
             mail to: 'rahmansean99@gmail.com',
             subject: "SECURITY ISSUES FOUND",
-            body: "npm audit reported issues.",
+            body: "npm audit reported issues."
            
           
         }
