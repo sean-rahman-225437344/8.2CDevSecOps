@@ -23,19 +23,23 @@ pipeline {
       }
       post {
         success {
-
-            mail to: 'rahmansean99@gmail.com',
+            emailext(
+            to: 'rahmansean99@gmail.com',
             subject: "TESTS PASSED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "Unit/Integration tests passed.\nSee console: ${env.BUILD_URL}"
-          
+            body: "Unit/Integration tests passed.\nSee console: ${env.BUILD_URL}",
+             attachLog: true,
+      compressLog: true
+            )
         }
         failure {
 
-        
+        emailext(
             mail to: 'rahmansean99@gmail.com',
             subject: "TESTS FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "Tests failed.\nSee console: ${env.BUILD_URL}"
-           
+            body: "Tests failed.\nSee console: ${env.BUILD_URL}",
+             attachLog: true,
+      compressLog: true
+        )
           
         }
       }
@@ -55,20 +59,25 @@ pipeline {
       }
       post {
         success {
-          
+          emailext(
             mail to: 'rahmansean99@gmail.com',
             subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL}"
-            
+            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL}",
+             attachLog: true,
+      compressLog: true
+          )
         
         }
         failure {
-          
+          emailext(
             mail to: 'rahmansean99@gmail.com',
             subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL}"
+            body: "npm audit failed.\nSee console: ${env.BUILD_URL}",
+             attachLog: true,
+      compressLog: true
+
       
-          
+          )
         }
       }
     }
