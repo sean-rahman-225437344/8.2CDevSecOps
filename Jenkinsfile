@@ -19,23 +19,24 @@ pipeline {
       steps {
         // Continue even if tests fail (demo-friendly)
         sh 'npm test || true'
+        echo 'About to send a test email via emailext...'
       }
       post {
         success {
-          emailext(
-            to: 'rahmansean99@gmail.com',
-            subject: "TESTS PASSED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "Unit/Integration tests passed.\nSee console: ${env.BUILD_URL}console",
+       
+            mail to: 'rahmansean99@gmail.com',
+            subject: "TESTS PASSED",
+            body: "Unit/Integration tests passed.",
             attachLog: true
-          )
+          
         }
         failure {
-          emailext(
-            to: 'rahmansean99@gmail.com',
-            subject: "TESTS FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "Tests failed.\nSee console: ${env.BUILD_URL}console",
+        
+            mail to: 'rahmansean99@gmail.com',
+            subject: "TESTS FAILED",
+            body: "Tests failed.",
             attachLog: true
-          )
+          
         }
       }
     }
@@ -50,23 +51,24 @@ pipeline {
     stage('NPM Audit (Security Scan)') {
       steps {
         sh 'npm audit || true'
+        echo 'About to send a test email via emailext...'
       }
       post {
         success {
-          emailext(
-            to: 'rahmansean99@gmail.com',
-            subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL}console",
+          
+            mail to: 'rahmansean99@gmail.com',
+            subject: "SECURITY OK",
+            body: "npm audit completed successfully.",
             attachLog: true
-          )
+        
         }
         failure {
-          emailext(
-            to: 'rahmansean99@gmail.com',
-            subject: "SECURITY ISSUES: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "npm audit reported issues.\nSee console: ${env.BUILD_URL}console",
+          
+            mail to: 'rahmansean99@gmail.com',
+            subject: "SECURITY ISSUES FOUND",
+            body: "npm audit reported issues.",
             attachLog: true
-          )
+          
         }
       }
     }
