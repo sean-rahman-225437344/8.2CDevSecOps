@@ -23,10 +23,11 @@ pipeline {
       }
       post {
         success {
-       
+            writeFile file: 'console.txt', text: "See console: ${env.{BUILD_LOG}}"
             mail to: 'rahmansean99@gmail.com',
             subject: "TESTS PASSED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "Unit/Integration tests passed.\nSee console: ${env.BUILD_URL} console"
+            body: "Unit/Integration tests passed.\n A file is attached."
+            attachmentsPattern: 'console.txt'
           
         }
         failure {
