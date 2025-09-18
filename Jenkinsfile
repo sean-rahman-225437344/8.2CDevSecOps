@@ -34,7 +34,7 @@ pipeline {
         failure {
 
         emailext(
-            mail to: 'rahmansean99@gmail.com',
+           to: 'rahmansean99@gmail.com',
             subject: "TESTS FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             body: "Tests failed.\nSee console: ${env.BUILD_URL}",
              attachLog: true,
@@ -60,7 +60,7 @@ pipeline {
       post {
         success {
           emailext(
-            mail to: 'rahmansean99@gmail.com',
+           to: 'rahmansean99@gmail.com',
             subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL}",
              attachLog: true,
@@ -70,7 +70,7 @@ pipeline {
         }
         failure {
           emailext(
-            mail to: 'rahmansean99@gmail.com',
+           to: 'rahmansean99@gmail.com',
             subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             body: "npm audit failed.\nSee console: ${env.BUILD_URL}",
              attachLog: true,
