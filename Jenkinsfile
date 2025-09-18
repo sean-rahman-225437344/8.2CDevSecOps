@@ -28,7 +28,7 @@ pipeline {
             subject: "TESTS PASSED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             body: "Unit/Integration tests passed.\nSee console: ${env.BUILD_URL}",
              attachLog: true,
-      compressLog: true
+            compressLog: true
             )
         }
         failure {
@@ -38,7 +38,7 @@ pipeline {
             subject: "TESTS FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             body: "Tests failed.\nSee console: ${env.BUILD_URL}",
              attachLog: true,
-      compressLog: true
+             compressLog: true
         )
           
         }
@@ -64,17 +64,17 @@ pipeline {
             subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL}",
              attachLog: true,
-      compressLog: true
+             compressLog: true
           )
         
         }
         failure {
           emailext(
            to: 'rahmansean99@gmail.com',
-            subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            subject: "SECURITY ISSUES: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             body: "npm audit failed.\nSee console: ${env.BUILD_URL}",
              attachLog: true,
-      compressLog: true
+            compressLog: true
 
       
           )
