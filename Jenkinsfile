@@ -26,8 +26,7 @@ pipeline {
        
             mail to: 'rahmansean99@gmail.com',
             subject: "TESTS PASSED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "Unit/Integration tests passed.\nSee console: ${env.BUILD_URL} console",
-            compressLog: true
+            body: "Unit/Integration tests passed.\nSee console: ${env.BUILD_URL} console"
           
         }
         failure {
@@ -35,8 +34,8 @@ pipeline {
         
             mail to: 'rahmansean99@gmail.com',
             subject: "TESTS FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "Tests failed.\nSee console: ${env.BUILD_URL} console",
-            compressLog: true
+            body: "Tests failed.\nSee console: ${env.BUILD_URL} console"
+           
           
         }
       }
@@ -59,8 +58,7 @@ pipeline {
           
             mail to: 'rahmansean99@gmail.com',
             subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL} console",
-            compressLog: true
+            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL} console"
             
         
         }
@@ -68,8 +66,8 @@ pipeline {
           
             mail to: 'rahmansean99@gmail.com',
             subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL} console",
-            compressLog: true
+            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL} console"
+      
           
         }
       }
