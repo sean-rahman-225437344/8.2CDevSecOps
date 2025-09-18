@@ -68,7 +68,7 @@ pipeline {
           
             mail to: 'rahmansean99@gmail.com',
             subject: "SECURITY OK: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL}console",
+            body: "npm audit completed successfully.\nSee console: ${env.BUILD_URL} console",
             compressLog: true
           
         }
