@@ -27,16 +27,16 @@ pipeline {
             mail to: 'rahmansean99@gmail.com',
             subject: "TESTS PASSED",
             body: "Unit/Integration tests passed.",
-             attachBuildLog: true
+          
           
         }
         failure {
-          
+
         
             mail to: 'rahmansean99@gmail.com',
             subject: "TESTS FAILED",
             body: "Tests failed.",
-             attachBuildLog: true
+            
           
         }
       }
@@ -60,7 +60,7 @@ pipeline {
             mail to: 'rahmansean99@gmail.com',
             subject: "SECURITY OK",
             body: "npm audit completed successfully.",
-             attachBuildLog: true
+            
         
         }
         failure {
@@ -68,7 +68,7 @@ pipeline {
             mail to: 'rahmansean99@gmail.com',
             subject: "SECURITY ISSUES FOUND",
             body: "npm audit reported issues.",
-            attachBuildLog: true
+           
           
         }
       }
